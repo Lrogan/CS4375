@@ -1,0 +1,41 @@
+1.
+## Sigmoid or Logistic Function
+<img align="left" src="images/C1_W3_LogisticRegression_left.png"     style=" width:230px; padding: 10px; " >As discussed in the lecture videos, for a classification task, we can start by using our linear regression model, $f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = \mathbf{w} \cdot  \mathbf{x}^{(i)} + b$, to predict $y$ given $x$. 
+- However, we would like the predictions of our classification model to be between 0 and 1 since our output variable $y$ is either 0 or 1. 
+- This can be accomplished by using a "sigmoid function" which maps all input values to values between 0 and 1. 
+
+
+Let's implement the sigmoid function and see this for ourselves.
+
+## Formula for Sigmoid function
+
+The formula for a sigmoid function is as follows -  
+
+$g(z) = \frac{1}{1+e^{-z}}\tag{1}$
+
+In the case of logistic regression, z (the input to the sigmoid function), is the output of a linear regression model. 
+- In the case of a single example, $z$ is scalar.
+- in the case of multiple examples, $z$ may be a vector consisting of $m$ values, one for each example. 
+- The implementation of the sigmoid function should cover both of these potential input formats.
+Let's implement this in Python.
+
+2.
+## Logistic Regression
+<img align="left" src="images/C1_W3_LogisticRegression_right.png"     style=" width:300px; padding: 10px; " > A logistic regression model applies the sigmoid to the familiar linear regression model as shown below:
+
+$$ f_{\mathbf{w},b}(\mathbf{x}^{(i)}) = g(\mathbf{w} \cdot \mathbf{x}^{(i)} + b ) \tag{2} $$ 
+
+  where
+
+  $g(z) = \frac{1}{1+e^{-z}}\tag{3}$
+
+3.
+Try the following steps:
+- Click on 'Run Logistic Regression' to find the best logistic regression model for the given training data
+    - Note the resulting model fits the data quite well.
+    - Note, the orange line is '$z$' or $\mathbf{w} \cdot \mathbf{x}^{(i)} + b$  above. It does not match the line in a linear regression model.
+Further improve these results by applying a *threshold*. 
+- Tick the box on the 'Toggle 0.5 threshold' to show the predictions if a threshold is applied.
+    - These predictions look good. The predictions match the data
+    - Now, add further data points in the large tumor size range (near 10), and re-run logistic regression.
+    - unlike the linear regression model, this model continues to make correct predictions
